@@ -1,0 +1,51 @@
+#include <os2.h>
+#include  "dialog.h"
+
+DLGTEMPLATE SD_DLG_BOX LOADONCALL MOVEABLE DISCARDABLE
+{
+    DIALOG  "SpiceWare Sound Demo ver 1.0 - Released August 24, 1997", SD_DLG_BOX, 28, 12, 277, 136, WS_VISIBLE,
+            FCF_SYSMENU | FCF_TITLEBAR
+    {
+        GROUPBOX        "Frequency", SD_FREQ, 0, 110, 181, 24
+        AUTORADIOBUTTON "~8000", SD_FREQ_8, 2, 116, 39, 10,    WS_TABSTOP | WS_GROUP
+        AUTORADIOBUTTON "~11025", SD_FREQ_11, 34, 116, 39, 10
+        AUTORADIOBUTTON "~22050", SD_FREQ_22, 70, 116, 39, 10
+        AUTORADIOBUTTON "~33075", SD_FREQ_33, 108, 116, 39, 10
+        AUTORADIOBUTTON "~44100", SD_FREQ_44, 144, 116, 35, 10
+        GROUPBOX        "Buffer Size", SD_BS, 184, 110, 92, 24
+        SLIDER          SD_BS_B, 186, 114, 56, 12, SLS_SNAPTOINCREMENT |
+                        SLS_BUTTONSTOP
+                        CTLDATA 12, 0, 61, 1, 100, 0
+        LTEXT           "Text", SD_BS_BT, 246, 116, 24, 8, NOT WS_GROUP
+        GROUPBOX        "Voice 1, Tone", SD_V1, 0, 78, 275, 20
+        GROUPBOX        "Voice 2, Tone", SD_V2, 0, 58, 275, 20
+        GROUPBOX        "Voice 3, Tone", SD_V3, 0, 38, 275, 20
+        GROUPBOX        "Voice 4, Noise", SD_V4, 0, 18, 275, 20
+        SLIDER          SD_V1_F, 4, 80, 154, 12, SLS_BUTTONSTOP | WS_GROUP
+                        CTLDATA 12, 0, 16, 20, 0, 0
+        SLIDER          SD_V1_V, 180, 80, 64, 8, SLS_BUTTONSLEFT | WS_GROUP
+                        CTLDATA 12, 0, 32, 1, 0, 0
+        SLIDER          SD_V2_F, 4, 60, 154, 12, SLS_BUTTONSTOP | WS_GROUP
+                        CTLDATA 12, 0, 16, 20, 0, 0
+        SLIDER          SD_V2_V, 180, 60, 64, 8, SLS_BUTTONSLEFT | WS_GROUP
+                        CTLDATA 12, 0, 32, 1, 0, 0
+        SLIDER          SD_V3_F, 4, 40, 154, 12, SLS_BUTTONSTOP | WS_GROUP
+                        CTLDATA 12, 0, 16, 20, 0, 0
+        SLIDER          SD_V3_V, 180, 39, 64, 11, SLS_BUTTONSLEFT | WS_GROUP
+                        CTLDATA 12, 0, 32, 1, 0, 0
+        SLIDER          SD_V4_F, 4, 20, 154, 12, SLS_BUTTONSTOP | WS_GROUP
+                        CTLDATA 12, 0, 16, 20, 0, 0
+        SLIDER          SD_V4_V, 180, 20, 64, 10, SLS_BUTTONSLEFT | WS_GROUP
+                        CTLDATA 12, 0, 32, 1, 0, 0
+        LTEXT           "Text", SD_V1_FT, 160, 82, 30, 8
+        LTEXT           "Text", SD_V1_VT, 248, 82, 24, 8
+        LTEXT           "Text", SD_V2_FT, 160, 62, 30, 8
+        LTEXT           "Text", SD_V2_VT, 248, 62, 24, 8
+        LTEXT           "Text", SD_V3_FT, 160, 42, 30, 8
+        LTEXT           "Text", SD_V3_VT, 248, 44, 24, 8
+        LTEXT           "Text", SD_V4_FT, 160, 22, 30, 8
+        LTEXT           "Text", SD_V4_VT, 248, 22, 24, 8
+        LTEXT           "Sound Frequency", 140, 72, 96, 80, 8
+        LTEXT           "Volume", 141, 222, 96, 34, 8
+    }
+}

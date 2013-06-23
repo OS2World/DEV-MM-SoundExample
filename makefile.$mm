@@ -1,0 +1,52 @@
+:TARGET.SUFFIXES
+:DEPENDENCY..c .obj .rc .res 
+:TARGET.all
+:DEPENDENCY.
+E:\C_Projects\SoundDemo_Source\snddemo.exe
+:RULE..rc.res
+:ACTION.Compile::Resource Compiler
+:COMMAND.
+rc.exe -r %s %|dpfF.RES
+:RULE..c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Ss /Ti /G5 /Fo"%|dpfF.obj" /C %s
+:TARGET.E:\C_Projects\SoundDemo_Source\snddemo.exe
+:DEPENDENCY.
+E:\C_Projects\SoundDemo_Source\snddemo.obj
+E:\C_Projects\SoundDemo_Source\sndos2.obj
+E:\C_Projects\SoundDemo_Source\dsp.obj
+E:\C_Projects\SoundDemo_Source\dialog.res
+{$(LIB)}mmpm2.lib
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /B" /de /exepack:2 /pmtype:pm"
+ /FeE:\C_Projects\SoundDemo_Source\snddemo.exe 
+ mmpm2.lib 
+ E:\C_Projects\SoundDemo_Source\snddemo.obj
+ E:\C_Projects\SoundDemo_Source\sndos2.obj
+ E:\C_Projects\SoundDemo_Source\dsp.obj
+<<
+:ACTION.Bind::Resource Bind
+:COMMAND.
+rc.exe E:\C_Projects\SoundDemo_Source\dialog.res E:\C_Projects\SoundDemo_Source\snddemo.exe
+:TARGET.E:\C_Projects\SoundDemo_Source\dialog.res
+:DEPENDENCY.
+E:\C_Projects\SoundDemo_Source\dialog.rc
+{$(INCLUDE)}dialog.h
+:TARGET.E:\C_Projects\SoundDemo_Source\snddemo.obj
+:DEPENDENCY.
+E:\C_Projects\SoundDemo_Source\snddemo.c
+{E:\C_Projects\SoundDemo_Source;$(INCLUDE);}SndOS2.h
+{E:\C_Projects\SoundDemo_Source;$(INCLUDE);}dsp.h
+{E:\C_Projects\SoundDemo_Source;$(INCLUDE);}dialog.h
+:TARGET.E:\C_Projects\SoundDemo_Source\dsp.obj
+:DEPENDENCY.
+E:\C_Projects\SoundDemo_Source\dsp.c
+{E:\C_Projects\SoundDemo_Source;$(INCLUDE);}dsp.h
+:TARGET.E:\C_Projects\SoundDemo_Source\sndos2.obj
+:DEPENDENCY.
+E:\C_Projects\SoundDemo_Source\sndos2.c
+{E:\C_Projects\SoundDemo_Source;$(INCLUDE);}SndOS2.h
+{E:\C_Projects\SoundDemo_Source;$(INCLUDE);}dsp.h
